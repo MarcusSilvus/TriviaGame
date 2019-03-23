@@ -1,5 +1,3 @@
-
-
 // Home screen with a start button
 
 // When start button is pressed, game begins:
@@ -24,20 +22,53 @@
 // When all the questions have been answered, a Score Sceen will replace the final
 // Result Screen displaying the amount the player got right, wrong and unanswered
 
-//------------------------------------------------------
 
-// Home Screen
+
+//----------------  Varibles  --------------------------------------
+ var right = 0;
+ var wrong = 0;
+ var timeOut = 0;
+
+//----------------  Questions ---------------------------------------
+// Make an object of questions and answers
+var qNa = {
+    one: {
+        question: "Who cut off Ned Stark's head?",
+        correctAnswer: "2",
+        options: ["Sandor Clegane","Gregor Clegane","Ilyn Payne","Joffrey Baratheon"],
+        image: '../images/ilynpayne.jpeg' 
+    }
+}
+
+// $(document).ready(() => {
+//----------------  Home Screen  --------------------------------------
+
 // Start button to begin the game
+    $('.startBtn').on('click', function () {
 
-// Screen refresh
+//----------------  Question Screen   ------------------------------------
+
+        // Timer counting down from 20 seconds
+
+        // Question
+        $('#row4').text(qNa.one.question);
+        // List of answers
+        for (var i = 0; i < qNa.one.options.length; i++) {
+            $('#row' + (6+i)).text(qNa.one.options[i]);      
+        }
+        $('.form-check-input').on('click', function() {
+            var userGuess = $(this);
+            if (userGuess === qNa.one.correctAnswer) {
+                console.log("correct");
+                
+            }
+        })
+
+    })
 
 
-//------------------------------------------------------
 
-// Question Screen
-// Timer counting down from 20 seconds
-// Question
-// List of answers
+
 
 // Hover function to make answer light up
 
@@ -46,9 +77,10 @@
 // else if timer runs out, Question Screen goes to Result Screen
 // else Question Screen goes to Result Screen
 
-//------------------------------------------------------
 
-// Result Screen
+
+//----------------   Result Screen   --------------------------------------
+
 // Hidden timer counting down from 5 seconds 
 // when timer is done, next Question Screen displays
 
@@ -61,7 +93,6 @@
 // else (user chose wrong)
 // "Wrong! The correct answer is: " w/ picture
 
-//------------------------------------------------------
+//----------------   Score Screen   --------------------------------------
 
-// Score Screen
 // Display how many correct, wrong and timed out

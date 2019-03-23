@@ -1,11 +1,3 @@
-// Home screen with a start button
-
-// When start button is pressed, game begins:
-
-// Home Screen is replaced with the Question Screen
-
-// Question Screen contains a timer counting down, the question and a list of answers
-
 // When the mouse hovers over the question, it changes color
 
 // If the correct answer is selected, Question Screen is replaced with Result Screen
@@ -28,7 +20,8 @@
  var right = 0;
  var wrong = 0;
  var timeOut = 0;
-
+ var timer = 20;
+ var intervalId;
 //----------------  Questions ---------------------------------------
 // Make an object of questions and answers
 var qNa = {
@@ -48,32 +41,40 @@ var qNa = {
 
 //----------------  Question Screen   ------------------------------------
 
-        // Timer counting down from 20 seconds
+        // Start button disappears - DONE but would like to add a page divider
+        $('#row5').html('<hr>');
 
+        // Timer counting down from 20 seconds 
+        function countDown () {
+            intervalId = setInterval(decrement, 1000);
+        }
+        function decrement () {
+            timer--;
+            $('#row3').html('<h3>' + timer + '</h3>');        
+        }
+        countDown();
+        
         // Question
         $('#row4').text(qNa.one.question);
         // List of answers
         for (var i = 0; i < qNa.one.options.length; i++) {
             $('#row' + (6+i)).text(qNa.one.options[i]);      
         }
+        // if user selects correct answer, Question Screen goes to Result Screen
         $('.form-check-input').on('click', function() {
             var userGuess = $(this);
             if (userGuess === qNa.one.correctAnswer) {
                 console.log("correct");
-                
+       
             }
         })
-
     })
 
-
-
-
-
 // Hover function to make answer light up
+    $('#answers').hover()
 
 // On click function to select answer - 
-// if user selects correct answer, Question Screen goes to Result Screen
+
 // else if timer runs out, Question Screen goes to Result Screen
 // else Question Screen goes to Result Screen
 

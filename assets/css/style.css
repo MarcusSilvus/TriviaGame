@@ -30,5 +30,18 @@ button {
     font-size: 24px;
     width: 200px;
     height: 40px;
+}
 
+.answers {
+    font-family: 'IM Fell Double Pica SC', serif;
+    font-size: 24px;
+}
+.questions {
+    font-family: 'IM Fell Double Pica SC', serif;  
+    font-size: 28px;
+}
+
+h3 {
+    font-family: 'Almendra SC', serif;  
+    font-size: 20px;
 }

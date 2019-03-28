@@ -51,7 +51,7 @@ h4 {
     font-size: 20px;
 }
 
-.answers.active {
+.answers:hover {
     background-color: white;
     opacity: .75;
 }

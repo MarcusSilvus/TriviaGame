@@ -61,10 +61,38 @@ var qNa = [
     },
 
     {
-        question: "?",
-        correctAnswer: "Dracarys",
-        options: ["Drogon", "Rhaegal", "Viserion", "Dracarys"],
-        image: "assets/images/dragon.jpg"
+        question: "Which was the decisive battle of Robert's Rebellion?",
+        correctAnswer: "Battle of the Trident",
+        options: ["Battle of Blackwater Bay", "Battle of the Bastards", "Battle on the Green Fork", "Battle of the Trident"],
+        image: "assets/images/trident.jpg"
+    },
+
+    {
+        question: "Jamie Lannister is known as Kingslayer for killing which king?",
+        correctAnswer: "Aerys Targaryen",
+        options: ["Aerys Targaryen", "Rhaegar Targaryen", "Viserys Targaryen", "Rob Stark"],
+        image: "assets/images/aerys.jpg"
+    },
+
+    {
+        question: "Where was Lord Varys born?",
+        correctAnswer: "Lys",
+        options: ["Kings Landing", "Bravos", "Lys", "Myr"],
+        image: "assets/images/varys.jpg"
+    },
+
+    {
+        question: "Who was the Maester at the wall when Jon Snow arrived?",
+        correctAnswer: "Aemon",
+        options: ["Maester Pycelle", "Maester Aemon", "Maester Cressen", "Maester Luwin"],
+        image: "assets/images/aemon.jpg"
+    },
+
+    {
+        question: "What is the name of Arya Stark's direwolf?",
+        correctAnswer: "Nymeria",
+        options: ["Grey Wind", "Lady", "Nymeria", "Ghost"],
+        image: "assets/images/nymeria.jpg"
     }
 ]
 

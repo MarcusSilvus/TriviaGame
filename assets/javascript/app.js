@@ -19,7 +19,7 @@ var right = 0;
 var wrong = 0;
 var timeUp = 0;
 var resultTime = 5;
-var timer = 21;
+var timer = 11;
 var intervalId;
 //----------------  Questions ---------------------------------------
 // Make an object of questions and answers
@@ -54,7 +54,7 @@ var qNa = [
     },
 
     {
-        question: "Who is Sansa Stark's first husband?",
+        question: "Who was Sansa Stark's first husband?",
         correctAnswer: "Tyrion Lannister",
         options: ["Ramsay Bolton", "Joffrey Baratheon", "Tyrion Lannister", "Petyr Baelish"],
         image: "assets/images/sansa.jpeg"
@@ -83,7 +83,7 @@ var qNa = [
 
     {
         question: "Who was the Maester at the wall when Jon Snow arrived?",
-        correctAnswer: "Aemon",
+        correctAnswer: "Maester Aemon",
         options: ["Maester Pycelle", "Maester Aemon", "Maester Cressen", "Maester Luwin"],
         image: "assets/images/aemon.jpg"
     },
@@ -100,7 +100,7 @@ var qNa = [
 //----------------  Home Screen  --------------------------------------
 
 // Start button to begin the game
-$('.startBtn').on('click', function () {
+$('.startBtn').on('click', function startGame() {
 
     // Start button disappears - DONE but would like to add a page divider
     $('#row5').html('<hr>');
@@ -122,18 +122,30 @@ function decrement() {
         $('#row3').html('<hr>');
         $('#row4').html('<h3>Time\'s Up! The correct answer is</h3>');
         $('#row5').html('<h3>' + qNa[questionIndex].correctAnswer + '</h3>');
+        $('#row6').attr('class', 'none');
         $('#row6').html("<img src='" + qNa[questionIndex].image + "'>");
         $('#row7').html('<hr>');
         $('#row8').html('<hr>');
         $('#row9').html('<hr>');
         questionIndex++;
-        timer = 21;
-        setTimeout(nextQuestion, 3000);
+        timer = 11;
+        setTimeout(nextQuestion, 1000);
     }
 }
 
 //----------------  Question Screen   ------------------------------------
 function nextQuestion() {
+    // Display how many correct, wrong and timed out
+    if (questionIndex === 10) {
+        $('#row3').html('<h2>Game Over</h2>');
+        $('#row4').html('<h3>Results:</h3>');
+        $('#row5').html('<hr>');
+        $('#row6').html('<h3>Correct: ' + right + '</h3>');
+        $('#row7').html('<h3>Incorrect: ' + wrong + '</h3>');
+        $('#row8').html('<h3>Unanswered: ' + timeUp + '</h3>');
+        // $('#row9').html('<button>').on('click'. startGame()); 
+        return;
+    }
     // Question
     $('#row4').text(qNa[questionIndex].question);
     // List of answers
@@ -141,7 +153,9 @@ function nextQuestion() {
     for (var i = 0; i < qNa[questionIndex].options.length; i++) {
         $('#row' + (6 + i)).text(qNa[questionIndex].options[i]);
         $('#row5').html('<hr>');
+        $('#row6').attr('class', 'answers');
     }
+   
 }
 
 // On click function to select answer
@@ -154,13 +168,14 @@ $('.answers').on('click', function () {
         $('#row3').html('<hr>');
         $('#row4').html('<h2>Correct!</h2>');
         $('#row5').html('<h3>' + qNa[questionIndex].correctAnswer + '</h3>');
+        $('#row6').attr('class', 'none');
         $('#row6').html("<img id='none' src='" + qNa[questionIndex].image + "'>");
         $('#row7').html('<hr>');
         $('#row8').html('<hr>');
         $('#row9').html('<hr>');
         questionIndex++;
-        timer = 21;
-        setTimeout(nextQuestion, 3000);
+        timer = 11;
+        setTimeout(nextQuestion, 1000);
 
     }
     // else Question Screen goes to Result Screen
@@ -170,17 +185,20 @@ $('.answers').on('click', function () {
         $('#row3').html('<hr>');
         $('#row4').html('<h3>Wrong! The correct answer is</h3>');
         $('#row5').html('<h3>' + qNa[questionIndex].correctAnswer + '</h3>');
+        $('#row6').attr('class', 'none');
         $('#row6').html("<img src='" + qNa[questionIndex].image + "'>");
         $('#row7').html('<hr>');
         $('#row8').html('<hr>');
         $('#row9').html('<hr>');
         questionIndex++;
-        timer = 21;
-        setTimeout(nextQuestion, 3000);
+        timer = 11;
+        setTimeout(nextQuestion, 1000);
     }
 })
 
 
+
 //----------------   Score Screen   --------------------------------------
 
-// Display how many correct, wrong and timed out
+
+

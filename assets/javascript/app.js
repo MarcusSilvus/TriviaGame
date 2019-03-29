@@ -101,11 +101,10 @@ var qNa = [
 
 // Start button to begin the game
 $('.startBtn').on('click', function startGame() {
-
     // Start button disappears - DONE but would like to add a page divider
     $('#row5').html('<hr>');
     nextQuestion();
-    
+
 })
 
 // Timer counting down from 20 seconds 
@@ -140,22 +139,28 @@ function nextQuestion() {
         $('#row3').html('<h2>Game Over</h2>');
         $('#row4').html('<h3>Results:</h3>');
         $('#row5').html('<hr>');
+        $('#row7').attr('class', 'none');
+        $('#row8').attr('class', 'none');
+        $('#row9').attr('class', 'none');
         $('#row6').html('<h3>Correct: ' + right + '</h3>');
         $('#row7').html('<h3>Incorrect: ' + wrong + '</h3>');
         $('#row8').html('<h3>Unanswered: ' + timeUp + '</h3>');
-        // $('#row9').html('<button>').on('click'. startGame()); 
-        return;
+        $('#row9').html('<button>').on('click', function () {
+            nextQuestion();
+            console.log("eat shit");
+        }
+        );
     }
-    // Question
-    $('#row4').text(qNa[questionIndex].question);
-    // List of answers
-    countDown();
-    for (var i = 0; i < qNa[questionIndex].options.length; i++) {
-        $('#row' + (6 + i)).text(qNa[questionIndex].options[i]);
-        $('#row5').html('<hr>');
-        $('#row6').attr('class', 'answers');
-    }
-   
+
+        // Question
+        $('#row4').text(qNa[questionIndex].question);
+        // List of answers
+        countDown();
+        for (var i = 0; i < qNa[questionIndex].options.length; i++) {
+            $('#row' + (6 + i)).text(qNa[questionIndex].options[i]);
+            $('#row5').html('<hr>');
+            $('#row6').attr('class', 'answers');
+        }
 }
 
 // On click function to select answer
@@ -194,7 +199,7 @@ $('.answers').on('click', function () {
         timer = 11;
         setTimeout(nextQuestion, 1000);
     }
-})
+});
 
 
 

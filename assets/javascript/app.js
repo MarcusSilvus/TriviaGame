@@ -129,7 +129,7 @@ function decrement() {
         $('#row9').html('<hr>');
         questionIndex++;
         timer = 11;
-        setTimeout(nextQuestion, 1000);
+        setTimeout(nextQuestion, 2000);
     }
 }
 
@@ -181,7 +181,7 @@ $('.answers').on('click', function () {
         $('#row9').html('<hr>');
         questionIndex++;
         timer = 11;
-        setTimeout(nextQuestion, 1000);
+        setTimeout(nextQuestion, 2000);
 
     }
     // else Question Screen goes to Result Screen
@@ -198,7 +198,7 @@ $('.answers').on('click', function () {
         $('#row9').html('<hr>');
         questionIndex++;
         timer = 11;
-        setTimeout(nextQuestion, 1000);
+        setTimeout(nextQuestion, 2000);
     }
 });
 

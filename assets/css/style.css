@@ -80,6 +80,6 @@ img {
 
 @media (max-width: 575px) {
     .gameBox{
-        height: 550px;
+        height: 600px;
     }
 }

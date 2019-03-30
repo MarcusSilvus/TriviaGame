@@ -103,6 +103,7 @@ var qNa = [
 $('.startBtn').on('click', function startGame() {
     // Start button disappears - DONE but would like to add a page divider
     $('#row5').html('<hr>');
+    $('.throneImg').hide();
     nextQuestion();
 
 })

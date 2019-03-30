@@ -60,3 +60,26 @@ img {
     height: 170px;
     width: 170px;
 }
+
+.titleImg {
+    height: 60px;
+    width: 60px;
+}
+
+.throneImg {
+    height: 250px;
+    width: 400px;
+    margin-right: -23px;
+}
+
+@media (max-width: 767px) {
+    .gameBox{
+        height: 510px;
+    }
+}
+
+@media (max-width: 575px) {
+    .gameBox{
+        height: 550px;
+    }
+}

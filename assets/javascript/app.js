@@ -100,13 +100,22 @@ var qNa = [
 //----------------  Home Screen  --------------------------------------
 
 // Start button to begin the game
-$('.startBtn').on('click', function startGame() {
+$('.startBtn').on('click', function () {
     // Start button disappears - DONE but would like to add a page divider
     $('#row5').html('<hr>');
     $('.throneImg').hide();
     nextQuestion();
 
-})
+});
+
+function startGame() {
+    right = 0;
+    wrong = 0;
+    timeUp = 0;
+    resultTime = 5;
+    nextQuestion();
+}
+
 
 // Timer counting down from 20 seconds 
 function countDown() {
@@ -135,23 +144,6 @@ function decrement() {
 
 //----------------  Question Screen   ------------------------------------
 function nextQuestion() {
-    // Display how many correct, wrong and timed out
-    if (questionIndex === 10) {
-        $('#row3').html('<h2>Game Over</h2>');
-        $('#row4').html('<h3>Results:</h3>');
-        $('#row5').html('<hr>');
-        $('#row7').attr('class', 'none');
-        $('#row8').attr('class', 'none');
-        $('#row9').attr('class', 'none');
-        $('#row6').html('<h3>Correct: ' + right + '</h3>');
-        $('#row7').html('<h3>Incorrect: ' + wrong + '</h3>');
-        $('#row8').html('<h3>Unanswered: ' + timeUp + '</h3>');
-        $('#row9').html('<button>').on('click', function () {
-            nextQuestion();
-            console.log("eat shit");
-        }
-        );
-    }
 
         // Question
         $('#row4').text(qNa[questionIndex].question);
@@ -200,11 +192,31 @@ $('.answers').on('click', function () {
         timer = 11;
         setTimeout(nextQuestion, 2000);
     }
+
+      // Display how many correct, wrong and timed out
+      if (questionIndex === 10) {
+        $('#row3').html('<h2>Game Over</h2>');
+        $('#row4').html('<h3>Results:</h3>');
+        $('#row5').html('<hr>');
+        $('#row7').attr('class', 'none');
+        $('#row8').attr('class', 'none');
+        $('#row9').attr('id', 'restart');
+        $('#row6').html('<h3>Correct: ' + right + '</h3>');
+        $('#row7').html('<h3>Incorrect: ' + wrong + '</h3>');
+        $('#row8').html('<h3>Unanswered: ' + timeUp + '</h3>');
+        $('#row9').html('<button>').on('click', function () {
+            console.log($(this));
+            
+            questionIndex = 0
+            startGame();
+        }
+        );
+    }
 });
 
 
 
-//----------------   Score Screen   --------------------------------------
+//----------------   New Game    --------------------------------------
 
 
 
